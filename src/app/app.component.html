@@ -28,12 +28,11 @@
       </select>
     </div>
 
-    <button class="btn-filter"><i class="fa-solid fa-filter"></i> Filtrar</button>
+    <button type="button" class="btn-filter"><i class="fa-solid fa-filter"></i> Filtrar</button>
   </div>
 
+  <!-- Se hace el llamado al componente para mostrar la lista -->
+  <app-list [users]="users"> </app-list>
 
 
-
-  <!-- Call to the componet to display the list -->
-  <app-list> </app-list>
 </div>
