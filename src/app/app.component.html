@@ -1,6 +1,32 @@
+
 <div class="container">
   <h1 class="title">Listado de Viajes</h1>
 
+  <!-- make a option selector -->
+  <div class="dropdwn-container">
+    <div class="dropdown">
+      <select class="dropdwn-select">
+        <option value="0">Todos</option>
+        <option value="1">Viajes de ida</option>
+        <option value="2">Viajes de vuelta</option>
+      </select>
+    </div>
+
+    <div class="dropdown">
+
+      <select class="dropdwn-select">
+        <option value="0">Todos</option>
+        <option value="1">Viajes de ida</option>
+        <option value="2">Viajes de vuelta</option>
+      </select>
+    </div>
+
+    <button class="btn-filter"><i class="fa-solid fa-filter"></i> Filtrar</button>
+  </div>
+
+
+
+
+  <!-- Call to the componet to display the list -->
+  <app-list> </app-list>
 </div>
-
-
