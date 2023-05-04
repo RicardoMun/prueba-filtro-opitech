@@ -25,12 +25,9 @@ table{
 
 #table th {
   padding: 8px;
-}
-
-#table th {
   padding-top: 12px;
+  text-align: center;
   padding-bottom: 12px;
-  text-align: left;
   background-color: #808387;
   color: white;
 }
