@@ -8,7 +8,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  // Obtenemos el JSON
+  // Consultamos el api para obtener datos (get)
   public getJsonUrl() {
     return this.http.get<any>('https://randomuser.me/api/?results=100');
   }
