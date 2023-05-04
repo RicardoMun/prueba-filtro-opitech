@@ -9,6 +9,23 @@ import { User } from 'src/app/models/user.model';
 export class ListComponent {
 
   // Array of users for the list
-  @Input() Users: string = '';
+  @Input() users: Array<User> = [];
+
+  getStatusClass(status: string): string {
+    switch (status) {
+      case 'landed':
+        return 'status-landed';
+      case 'operating':
+        return 'status-operating';
+      case 'delayed':
+        return 'status-delayed';
+      case 'cancelled':
+        return 'status-cancelled';
+      default:
+        return '';
+    }
+  }
+
+  constructor() { }
 
 }
