@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { User } from './models/user.model';
+import { City } from './models/city.model';
 import { ApiService } from './services/api.service';
+
 
 @Component({
   selector: 'app-root',
@@ -12,9 +14,6 @@ export class AppComponent {
   show = false;
   firstUsers: Array<User> = [];
   users: Array<User> = [];
-  
-
-
   constructor(private ApiService: ApiService) { }
 
   public getJson() {
@@ -29,8 +28,7 @@ export class AppComponent {
       });
       this.users = this.firstUsers.map(user => user);
       //console.log(this.users);
-
-    });
+    })
   }
 
   // Iniciamos el componente
@@ -38,9 +36,9 @@ export class AppComponent {
     this.getJson();
   }
 
-  public filterUsers(city: string) {
+  /* public filterUsers(city: string) {
     this.users = this.firstUsers.filter(user => user.city === city);
-  }
+  } */
 
 
 
