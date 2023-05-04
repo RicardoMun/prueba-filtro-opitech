@@ -7,12 +7,15 @@
     <div class="dropdown">
       <select class="dropdwn-select">
         <option value="" disabled selected>Select departure city</option>
-        <option value="0">All cities</option>
+        <!-- recorremos el JSON para obtener las ciudades de
+        los usuarios y así tener todos los datos en el dropdown -->
+        <option *ngFor="let user of users" [value]="user">{{user.city}}</option>
+        <!-- <option value="0">All cities</option>
         <option value="1">Cali</option>
         <option value="2">Bogotá</option>
         <option value="3">Medellín</option>
         <option value="4">Pereira</option>
-        <option value="5">Manizales</option>
+        <option value="5">Manizales</option> -->
 
       </select>
     </div>
