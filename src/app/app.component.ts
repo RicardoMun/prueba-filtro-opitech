@@ -12,6 +12,7 @@ export class AppComponent {
   show = false;
   firstUsers: Array<User> = [];
   users: Array<User> = [];
+  
 
 
   constructor(private ApiService: ApiService) { }
