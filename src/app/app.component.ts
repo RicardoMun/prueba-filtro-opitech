@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'prueba-filtro-opi';
+
+  http = inject(HttpClient);
+
+  // Iniciamos el componente para
+  ngOnInit() {
+    this.http.get('https://jsonplaceholder.typicode.com/users').subscribe(data => {
+      console.log(data);
+    });
+  }
 }
