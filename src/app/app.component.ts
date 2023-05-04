@@ -12,8 +12,6 @@ export class AppComponent {
   show = false;
   firstUsers: Array<User> = [];
   users: Array<User> = [];
-  /* selectedUser: "all";
-  selectedFlightStatus: "all"; */
 
 
   constructor(private ApiService: ApiService) { }
@@ -23,13 +21,13 @@ export class AppComponent {
     this.ApiService.getJsonUrl().subscribe(data => {
       this.firstUsers = data.results.map((result: any) => {
         return new User(
-          result['name']['first'],
-          result['email'],
-          result['location']['city']
+          result.name.first,
+          result.email,
+          result.location.city
         );
       });
       this.users = this.firstUsers.map(user => user);
-      this.showData();
+      //console.log(this.users);
 
     });
   }
@@ -39,9 +37,10 @@ export class AppComponent {
     this.getJson();
   }
 
-  public showData() {
-    this.show = true;
+  public filterUsers(city: string) {
+    this.users = this.firstUsers.filter(user => user.city === city);
   }
+
 
 
 }
