@@ -4,14 +4,14 @@ export class User {
 
   name: string;
   email: string;
-  flightStatus: string;
-  gender: string;
+  flight: string;
+  city: string;
 
-  constructor(name:string, email:string, flightStatus:string, gender:string){
+  constructor(name:string, email:string, city:string){
     this.name = name;
     this.email = email;
-    this.flightStatus = flightStatus[Math.floor(Math.random() * flightStatus.length)];
-    this.gender = gender;
+    this.flight = flightStatus[Math.floor(Math.random() * flightStatus.length)];
+    this.city = city;
   }
 
 }

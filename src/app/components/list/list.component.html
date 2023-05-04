@@ -10,25 +10,23 @@
   </thead>
 
   <tbody>
-    <!-- <tr *ngFor="let user of users"> -->
-      <td>Andres<!-- {{user.name}} --></td>
-      <td>andres@email.com<!-- {{user.email}} --></td>
-      <td>Manizales<!-- {{user.gender}} --></td>
+    <tr *ngFor="let user of users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.flight }}</td>
       <td>
-        <p class="status">Landed<!-- {{user.flightStatus}} --></p>
+        <p class="status">{{ user.flight }}</p>
       </td>
-   <!--  </tr> -->
   </tbody>
 
   <tbody>
-    <!-- <tr *ngFor="let user of users"> -->
-      <td>Andres<!-- {{user.name}} --></td>
-      <td>andres@email.com<!-- {{user.email}} --></td>
-      <td>Manizales<!-- {{user.gender}} --></td>
+    <tr *ngFor="let user of users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.city }}</td>
       <td>
-        <p class="status">Landed<!-- {{user.flightStatus}} --></p>
+        <p class="status"> {{user.flight}} </p>
       </td>
-   <!--  </tr> -->
   </tbody>
 
 </table>

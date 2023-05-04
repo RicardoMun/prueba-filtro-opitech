@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 
 @Component({
@@ -6,12 +6,18 @@ import { User } from 'src/app/models/user.model';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ListComponent {
+export class ListComponent implements OnInit{
 
   // Array of users for the list
   @Input() users: Array<User> = [];
 
-  getStatusClass(status: string): string {
+  constructor() { }
+
+  ngOnInit(): void {
+
+  }
+
+  /* getStatusClass(status: string): string {
     switch (status) {
       case 'landed':
         return 'status-landed';
@@ -24,8 +30,7 @@ export class ListComponent {
       default:
         return '';
     }
-  }
+  } */
 
-  constructor() { }
 
 }

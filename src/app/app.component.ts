@@ -1,5 +1,6 @@
-import { Component, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, Input } from '@angular/core';
+import { User } from './models/user.model';
+import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +9,40 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
 
-  http = inject(HttpClient);
+  show = false;
+  firstUsers: Array<User> = [];
+  users: Array<User> = [];
+  /* selectedUser: "all";
+  selectedFlightStatus: "all"; */
 
-  // Iniciamos el componente para
-  ngOnInit() {
-    this.http.get('https://jsonplaceholder.typicode.com/users').subscribe(data => {
-      console.log(data);
+
+  constructor(private ApiService: ApiService) { }
+
+  public getJson() {
+    //Llamamos al servicio que nos devuelve un Observable
+    this.ApiService.getJsonUrl().subscribe(data => {
+      this.firstUsers = data.results.map((result: any) => {
+        return new User(
+          result['name']['first'],
+          result['email'],
+          result['location']['city']
+        );
+      });
+      this.users = this.firstUsers.map(user => user);
+      this.showData();
+
     });
   }
+
+  // Iniciamos el componente
+  ngOnInit() {
+    this.getJson();
+  }
+
+  public showData() {
+    this.show = true;
+  }
+
+
 }
+
