@@ -1,6 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component} from '@angular/core';
 import { User } from './models/user.model';
-import { City } from './models/city.model';
 import { ApiService } from './services/api.service';
 
 
@@ -11,9 +10,11 @@ import { ApiService } from './services/api.service';
 })
 export class AppComponent {
 
-  show = false;
   firstUsers: Array<User> = [];
   users: Array<User> = [];
+  selectedStatus = "all";
+  selectedDeparture = "all";
+
   constructor(private ApiService: ApiService) { }
 
   public getJson() {
@@ -36,9 +37,39 @@ export class AppComponent {
     this.getJson();
   }
 
-  /* public filterUsers(city: string) {
-    this.users = this.firstUsers.filter(user => user.city === city);
-  } */
+  /* Creamos el filtro para la busqueda por estado de vuelo y
+    por ciudad de despacho */
+
+  public filter() {
+    console.log(this.selectedStatus);
+
+    this.users = this.firstUsers.filter(user => {
+
+      if (this.selectedStatus == "all" && this.selectedDeparture == "all") {
+        return true;
+      }
+
+      if (this.selectedDeparture != "all" && this.selectedStatus == "all") {
+        return user.city == this.selectedDeparture;
+      }
+
+      if (this.selectedStatus != "all" && this.selectedDeparture == "all") {
+        return user.flight == this.selectedStatus;
+      }
+
+      return user.flight === this.selectedStatus && user.city === this.selectedDeparture;
+
+    });
+
+  }
+
+  onChangeStatus($event: any) {
+    this.selectedStatus = $event.target.value;
+  }
+
+  onChangeCity($event: any) {
+    this.selectedDeparture = $event.target.value;
+  }
 
 
 }
