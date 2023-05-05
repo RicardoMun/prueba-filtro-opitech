@@ -17,20 +17,20 @@ export class ListComponent implements OnInit{
 
   }
 
-  /* getStatusClass(status: string): string {
+  getStatusClass(status: string): string {
     switch (status) {
-      case 'landed':
+      case 'Landed':
         return 'status-landed';
-      case 'operating':
+      case 'Operating':
         return 'status-operating';
-      case 'delayed':
+      case 'Delayed':
         return 'status-delayed';
-      case 'cancelled':
+      case 'Cancelled':
         return 'status-cancelled';
       default:
         return '';
     }
-  } */
+  }
 
 
 }

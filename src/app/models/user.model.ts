@@ -1,4 +1,4 @@
-let flightStatus = ['landed', 'operating', 'delayed', 'cancelled'];
+let flightStatus = ['Landed', 'Operating', 'Delayed', 'Cancelled'];
 
 export class User {
 

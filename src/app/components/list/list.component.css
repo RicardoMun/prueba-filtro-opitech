@@ -28,6 +28,33 @@ table{
   padding-top: 12px;
   text-align: center;
   padding-bottom: 12px;
-  background-color: #808387;
+  background-color: #043a81;
   color: white;
+}
+
+.status{
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.status-landed{
+  background-color: #00af00af;
+  color: #ffffff;
+}
+
+.status-operating{
+  background-color: #0015ffa3;
+  color: #ffffff;
+}
+
+.status-delayed{
+  background-color: #7a7a7aa3;
+  color: #ffffff;
+}
+
+.status-cancelled{
+  background-color: #ff0000a3;
+  color: #ffffff;
 }
