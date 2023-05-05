@@ -5,11 +5,12 @@
   <!-- make a option selector -->
   <div class="dropdwn-container">
     <div class="dropdown">
-      <select class="dropdwn-select">
+      <select class="dropdwn-select" (change)="onChangeCity($event)">
         <option value="" disabled selected>Select departure city</option>
         <!-- recorremos el JSON para obtener las ciudades de
         los usuarios y así tener todos los datos en el dropdown -->
-        <option *ngFor="let user of users" [value]="user">{{user.city}}</option>
+        <option value="all">All cities</option>
+        <option *ngFor="let user of users" [value]="user.city"> {{user.city}} </option>
         <!-- <option value="0">All cities</option>
         <option value="1">Cali</option>
         <option value="2">Bogotá</option>
@@ -21,21 +22,23 @@
     </div>
 
     <div class="dropdown">
-      <select class="dropdwn-select">
+      <select class="dropdwn-select" (change)="onChangeStatus($event)">
         <option value="" disabled selected>Select flight status</option>
-        <option value="0">All flights</option>
-        <option value="1">Landed</option>
-        <option value="2">Operating</option>
-        <option value="3">Delayed</option>
-        <option value="4">Cancelled</option>
+        <option value="all">All flights</option>
+        <option value="Landed">Landed</option>
+        <option value="Operating">Operating</option>
+        <option value="Delayed">Delayed</option>
+        <option value="Cancelled">Cancelled</option>
       </select>
     </div>
 
-    <button type="button" class="btn-filter"><i class="fa-solid fa-filter"></i> Filter</button>
+    <button class="btn-filter" (click)="filter()"><i class="fa-solid fa-filter"></i> Filter</button>
   </div>
 
   <!-- Se hace el llamado al componente para mostrar la lista -->
-  <app-list [users]="users"> </app-list>
+  <div *ngIf="showDetails">
+    <app-list [users]="users"></app-list>
+  </div>
 
 
 </div>
